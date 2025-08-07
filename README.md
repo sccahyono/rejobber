@@ -25,4 +25,4 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 - Utilize more components, ideally if an object used more than 2 times, use components
 - Tidy up the store / use case directory for cleaner code
 - Add Unit Testing
-- Add some small features like search bar, sort for learning purpose
+- Add some small features like search bar, sort, empty screen for learning purpose

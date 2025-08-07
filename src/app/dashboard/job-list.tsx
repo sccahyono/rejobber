@@ -1,6 +1,7 @@
 'use client'
 
 import { Job } from "@/entities/job"
+import { PencilSquareIcon, TrashIcon } from "@heroicons/react/16/solid"
 
 interface JobListProps {
   jobs: Job[],
@@ -44,9 +45,14 @@ export default function JobList({ jobs, handleShow }: JobListProps) {
                       <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">{job.location}</td>
                       <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">{job.job_type}</td>
                       <td className="py-4 pr-4 pl-3 text-right text-sm font-medium whitespace-nowrap sm:pr-6">
-                        <a href="#" className="text-cyan-600 hover:text-cyan-900">
-                          Edit<span className="sr-only">, {job.id}</span>
-                        </a>
+                        <div className="flex justify-end gap-x-4">
+                          <a href="#" className="text-cyan-600 hover:text-cyan-900">
+                            <PencilSquareIcon className="size-4"></PencilSquareIcon>
+                          </a>
+                          <a href="#" className="text-red-600 hover:text-red-900">
+                            <TrashIcon className="size-4"></TrashIcon>
+                          </a>
+                        </div>
                       </td>
                     </tr>
                   ))}
