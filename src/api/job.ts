@@ -41,7 +41,7 @@ export async function getJobs(filters: Partial<Job>) {
 }
 
 // READ - Single job
-export async function getJobById(id: string) {
+export async function getJobById(id: number) {
   const { data, error } = await supabase
     .from(TABLE_NAME)
     .select('*')
@@ -53,7 +53,7 @@ export async function getJobById(id: string) {
 }
 
 // UPDATE
-export async function updateJob(id: string, updatedFields: Partial<Job>) {
+export async function updateJob(id: number, updatedFields: Partial<Job>) {
   const { data, error } = await supabase
     .from(TABLE_NAME)
     .update(updatedFields)
@@ -66,7 +66,7 @@ export async function updateJob(id: string, updatedFields: Partial<Job>) {
 }
 
 // DELETE
-export async function deleteJob(id: string) {
+export async function deleteJob(id: number) {
   const { error } = await supabase
     .from(TABLE_NAME)
     .delete()

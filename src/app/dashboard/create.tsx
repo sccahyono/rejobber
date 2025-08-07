@@ -86,7 +86,7 @@ export default function Create({ open, handleOpen, onSuccess }: CreateProps) {
                           Job Title
                         </label>
                         <div className="mt-2">
-                          <div className="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+                          <div className="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-yellow-600">
                             <input
                               id="title"
                               name="title"
@@ -110,7 +110,7 @@ export default function Create({ open, handleOpen, onSuccess }: CreateProps) {
                             id="description"
                             name="description"
                             rows={3}
-                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-yellow-600 sm:text-sm/6"
                             value={form.description}
                             required
                             onChange={handleTextChange}
@@ -132,7 +132,7 @@ export default function Create({ open, handleOpen, onSuccess }: CreateProps) {
                             value={form.company_name}
                             required
                             onChange={handleChange}
-                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-yellow-600 sm:text-sm/6"
                             placeholder="e.g. Acme Inc."
                           />
                         </div>
@@ -150,7 +150,7 @@ export default function Create({ open, handleOpen, onSuccess }: CreateProps) {
                             autoComplete="company-logo-url"
                             value={form.company_logo}
                             onChange={handleChange}
-                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-yellow-600 sm:text-sm/6"
                             placeholder="e.g. https://acme.inc/logo.png"
                           />
                         </div>
@@ -168,7 +168,7 @@ export default function Create({ open, handleOpen, onSuccess }: CreateProps) {
                             value={form.job_type}
                             required
                             onChange={handleSelectChange}
-                            className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-yellow-600 sm:text-sm/6"
                           >
                             {jobTypes.filter((jobType, idx) => (idx > 0)).map((jobType) => (
                               <option key={jobType.value} value={jobType.value}>{jobType.label}</option>
@@ -194,7 +194,7 @@ export default function Create({ open, handleOpen, onSuccess }: CreateProps) {
                             value={form.location}
                             required
                             onChange={handleChange}
-                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-yellow-600 sm:text-sm/6"
                             placeholder="e.g. Jakarta"
                           />
                         </div>
@@ -204,12 +204,12 @@ export default function Create({ open, handleOpen, onSuccess }: CreateProps) {
                 </div>
 
                 <div className="mt-6 flex items-center justify-end gap-x-6">
-                  <button type="button" className="text-sm/6 font-semibold text-gray-900">
+                  <button type="button" className="text-sm/6 font-semibold text-gray-900" onClick={() => handleOpen(false)}>
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="rounded-md bg-yellow-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-yellow-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
                   >
                     Save
                   </button>
