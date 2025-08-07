@@ -6,7 +6,7 @@ import { Dispatch, SetStateAction, useState } from "react"
 import { useRouter } from 'next/navigation'
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react"
 import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/20/solid"
-import { jobTypes } from "../layout"
+import { jobTypes } from '@/lib/constants'
  
 interface CreateProps{
     open: boolean,

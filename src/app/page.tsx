@@ -15,7 +15,7 @@ import Navbar from '@/components/Navbar'
 import Selection from '@/components/Selection'
 import Link from 'next/link'
 import { ArrowsPointingOutIcon } from '@heroicons/react/24/outline'
-import { jobTypes, locations } from './layout'
+import { jobTypes, locations } from '@/lib/constants'
 import { getJobs } from '@/api/job'
 
 const jobs = [
