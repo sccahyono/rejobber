@@ -8,9 +8,10 @@ import { User } from '../entities/user'
 interface UserContextType {
   user: User | null
   loading: boolean
+  signOut: () => Promise<void>
 }
 
-const UserContext = createContext<UserContextType>({ user: null, loading: true })
+const UserContext = createContext<UserContextType>({ user: null, loading: true, signOut: async () => {}})
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
@@ -37,8 +38,13 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
     return () => listener.subscription.unsubscribe()
   }, [])
 
+  const signOut = async () => {
+    await supabase.auth.signOut()
+    setUser(null)
+  }
+
   return (
-    <UserContext.Provider value={{ user, loading }}>
+    <UserContext.Provider value={{ user, loading, signOut }}>
       {children}
     </UserContext.Provider>
   )

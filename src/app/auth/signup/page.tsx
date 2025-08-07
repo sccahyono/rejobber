@@ -1,8 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { signUp } from '../../../store/auth'
-import { User } from '../../../entities/user'
+import { signUp } from '@/store/auth'
+import { User } from '@/entities/user'
+import Link from 'next/link'
+import router from 'next/router'
 
 export default function SignUp() {
   const [form, setForm] = useState<User>({
@@ -28,13 +30,17 @@ export default function SignUp() {
     const msg = await signUp(form)
     setMessage(msg)
     setLoading(false)
+
+    if (msg == '') {
+      router.push('/dashboard')
+    }
   }
 
   return (
     <>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="display_name" className="block text-sm/6 font-medium text-gray-100">
+          <label htmlFor="display_name" className="block text-sm/6 font-medium text-gray-900">
             Name
           </label>
           <div className="mt-2">
@@ -46,13 +52,13 @@ export default function SignUp() {
               required
               onChange={handleChange}
               autoComplete="display_name"
-              className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-500 sm:text-sm/6"
+              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-600 sm:text-sm/6"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm/6 font-medium text-gray-100">
+          <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
             Email address
           </label>
           <div className="mt-2">
@@ -64,13 +70,13 @@ export default function SignUp() {
               required
               onChange={handleChange}
               autoComplete="email"
-              className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-500 sm:text-sm/6"
+              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-600 sm:text-sm/6"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="password" className="block text-sm/6 font-medium text-gray-100">
+          <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">
             Password
           </label>
           <div className="mt-2">
@@ -82,13 +88,13 @@ export default function SignUp() {
               required
               onChange={handleChange}
               autoComplete="password"
-              className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-500 sm:text-sm/6"
+              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-600 sm:text-sm/6"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="confirmPassword" className="block text-sm/6 font-medium text-gray-100">
+          <label htmlFor="confirmPassword" className="block text-sm/6 font-medium text-gray-900">
             Confirm Password
           </label>
           <div className="mt-2">
@@ -100,7 +106,7 @@ export default function SignUp() {
               required
               onChange={handleChange}
               autoComplete="confirmPassword"
-              className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-500 sm:text-sm/6"
+              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-600 sm:text-sm/6"
             />
           </div>
         </div>
@@ -122,9 +128,9 @@ export default function SignUp() {
 
       <p className="mt-10 text-center text-sm/6 text-gray-400">
         Already have account?{' '}
-        <a href="#" className="font-semibold text-cyan-400 hover:text-cyan-300">
+        <Link href="/auth/signin" className="font-semibold text-cyan-400 hover:text-cyan-300">
           Sign In
-        </a>
+        </Link>
       </p>
     </>
   )

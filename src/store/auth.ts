@@ -1,7 +1,7 @@
 'use client'
 
-import { supabase } from '../api/supabase'
-import { User } from '../entities/user'
+import { supabase } from '@/api/supabase'
+import { User } from '@/entities/user'
 
 export async function signUp(user: User): Promise<string | null> {
   const { display_name, email, password, confirmPassword } = user
@@ -22,7 +22,22 @@ export async function signUp(user: User): Promise<string | null> {
     return error.message
   }
 
-  return 'Signup successful! Check your email to confirm your account.'
+  return ''
+}
+
+export async function signIn(user: User): Promise<string | null> {
+  const { email, password } = user
+
+  const { error } = await supabase.auth.signInWithPassword({ 
+    email: email, 
+    password: password!,
+ })
+
+  if (error) {
+    return error.message
+  }
+
+  return ''
 }
 
 export async function getCurrentUser() {
